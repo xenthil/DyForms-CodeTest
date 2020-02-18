@@ -70,5 +70,12 @@ namespace TicketingSystem
                                 (string.IsNullOrEmpty(field.ConditionalFieldValue) || (field.ConditionalFieldValue.ToLower() == formField.Value.ToLower())))
                 .ToList();
         }
+
+        internal List<KeyValuePair<string, string>> GetFormValues()
+        {
+            return formDefinition
+                .Where(field => !string.IsNullOrEmpty(field.Value) && field.Value != null)
+                .Select(field => new KeyValuePair<string, string>(field.Name, field.Value)).ToList();
+        }
     }
 }

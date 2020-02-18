@@ -10,12 +10,14 @@ namespace TicketingSystem
 
         static void Main(string[] args)
         {
-            formDefinition = new FormDefinition();
-            fields = formDefinition.Get();
+            ShowForm();
 
-            foreach (var field in fields)
+            Console.WriteLine("-------------- Form Values -----------------");
+
+            var form = formDefinition.GetFormValues();
+            foreach (var item in form)
             {
-                GetInput(field);
+                Console.WriteLine($"{item.Key} => {item.Value}");
             }
 
             Console.ReadLine();
@@ -43,6 +45,17 @@ namespace TicketingSystem
                         GetInput(conditionalField);
                     }
                 }
+            }
+        }
+
+        private static void ShowForm()
+        {
+            formDefinition = new FormDefinition();
+            fields = formDefinition.Get();
+
+            foreach (var field in fields)
+            {
+                GetInput(field);
             }
         }
     }
