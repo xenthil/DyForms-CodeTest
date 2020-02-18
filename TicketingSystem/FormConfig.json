@@ -1,0 +1,13 @@
+{
+  "fields": [
+    {
+      "CreatedBy": "string",
+      "Description": "string",
+      "Severity": "int",
+      "Status": "Enum",
+      "CancelledReason": "Enum",
+      "CancelledOtherDescription": "string",
+      "Comments": "string"
+    }
+  ]
+}
